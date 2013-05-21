@@ -14,7 +14,7 @@ like: 0, f, n, false, no to 'false'.
       "given (#{arguments.size} for 1)") if arguments.size < 1
 
     string = arguments[0]
-    
+
     # If string is already Boolean, return it
     if !!string == string
       return string
@@ -32,9 +32,9 @@ like: 0, f, n, false, no to 'false'.
       # We yield false in this case.
       #
       when /^$/, '' then false # Empty string will be false ...
-      when /^(1|t|y|true|yes)$/  then true
-      when /^(0|f|n|false|no)$/  then false
-      when /^(undef|undefined)$/ then false # This is not likely to happen ...
+      when /^(1|t|y|true|yes)$/i  then true
+      when /^(0|f|n|false|no)$/i  then false
+      when /^(undef|undefined)$/i then false # This is not likely to happen ...
       else
         raise(Puppet::ParseError, 'str2bool(): Unknown type of boolean given')
     end

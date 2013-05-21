@@ -17,11 +17,16 @@ describe "the str2bool function" do
     result.should(eq(true))
   end
 
+  it "should convert string 'TRUE' to true" do
+    result = scope.function_str2bool(["TRUE"])
+    result.should(eq(true))
+  end
+
   it "should convert string 'undef' to false" do
     result = scope.function_str2bool(["undef"])
     result.should(eq(false))
   end
-  
+
   it "should return the boolean it was called with" do
     result = scope.function_str2bool([true])
     result.should(eq(true))
